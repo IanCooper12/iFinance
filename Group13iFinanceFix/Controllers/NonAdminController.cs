@@ -248,6 +248,7 @@ namespace Group13iFinanceFix.Controllers
             if (ModelState.IsValid)
             {
                 masterAccount.ID = Guid.NewGuid().ToString();
+                masterAccount.closingAmount = masterAccount.openingAmount;
                 db.MasterAccount.Add(masterAccount);
                 db.SaveChanges();
                 return RedirectToAction("ChartOfAccounts");

@@ -34,10 +34,7 @@
                                 @*<td>@account.ID</td>*@
                                 <td>@account.name</td>
                                 <td>@account.openingAmount.ToString()</td>
-                                @{
-                                    var closingAmount = account.closingAmount.ToString();
-                                    <td>@closingAmount</td>
-                                }
+                                <td>@account.closingAmount.ToString()</td>
                                 @{
                                     var groupName = account.GroupTable?.groupName;
                                     <td>@groupName</td>
