@@ -1,4 +1,10 @@
 # Setup
+## Required software
+- Visual Studio 2022, with the following components:
+  - ASP.Net and web development
+  - .NET Framework project and item templates (found under individual components in the installer)
+- [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
+- [SQL Server Management Studio](https://learn.microsoft.com/en-us/ssms/download-sql-server-management-studio-ssms)
 ## Setup the database:
 - Execute `iFINANCE_FinalSetup.sql` in SQL Server Management Studio
 ## Connect the database:
