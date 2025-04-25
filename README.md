@@ -8,6 +8,7 @@
 ## Setup the database:
 - Execute `iFINANCE_FinalSetup.sql` in SQL Server Management Studio
 ## Connect the database:
+Do this if you get an error when trying to log in:
 - Open `Group13iFinanceFix.sln` in Visual Studio
 - Open `Web.config`
 - Find the 2 lines with "data source=...;"
