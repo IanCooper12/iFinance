@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Projects\\Group13iFinance\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|c:\\projects\\group13ifinance\\group13ifinancefix\\controllers\\nonadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|solutionrelative:group13ifinancefix\\controllers\\nonadmincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|c:\\projects\\group13ifinance\\group13ifinancefix\\views\\nonadmin\\accountgroups.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|solutionrelative:group13ifinancefix\\views\\nonadmin\\accountgroups.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|c:\\projects\\group13ifinance\\group13ifinancefix\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|solutionrelative:group13ifinancefix\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|C:\\Projects\\Group13iFinance\\group13ifinancefix\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|solutionrelative:group13ifinancefix\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|c:\\projects\\group13ifinance\\group13ifinancefix\\views\\nonadmin\\editmasteraccount.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|solutionrelative:group13ifinancefix\\views\\nonadmin\\editmasteraccount.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,28 +38,54 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AccountGroups.cshtml",
+              "DocumentMoniker": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Views\\NonAdmin\\AccountGroups.cshtml",
+              "RelativeDocumentMoniker": "Group13iFinanceFix\\Views\\NonAdmin\\AccountGroups.cshtml",
+              "ToolTip": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Views\\NonAdmin\\AccountGroups.cshtml",
+              "RelativeToolTip": "Group13iFinanceFix\\Views\\NonAdmin\\AccountGroups.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-25T19:19:14.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "NonAdminController.cs",
+              "DocumentMoniker": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Controllers\\NonAdminController.cs",
+              "RelativeDocumentMoniker": "Group13iFinanceFix\\Controllers\\NonAdminController.cs",
+              "ToolTip": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Controllers\\NonAdminController.cs",
+              "RelativeToolTip": "Group13iFinanceFix\\Controllers\\NonAdminController.cs",
+              "ViewState": "AgIAAJwAAAAAAAAAAAAgwK0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-25T19:12:47.719Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Web.config",
               "DocumentMoniker": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Web.config",
               "RelativeDocumentMoniker": "Group13iFinanceFix\\Web.config",
               "ToolTip": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Web.config",
               "RelativeToolTip": "Group13iFinanceFix\\Web.config",
-              "ViewState": "AgIAACEAAAAAAAAAAAAvwD8AAADsAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAEAAAADqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-04-25T18:36:27.046Z",
+              "WhenOpened": "2025-04-25T19:09:24.379Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Web.config",
-              "DocumentMoniker": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Views\\Web.config",
-              "RelativeDocumentMoniker": "Group13iFinanceFix\\Views\\Web.config",
-              "ToolTip": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Views\\Web.config",
-              "RelativeToolTip": "Group13iFinanceFix\\Views\\Web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-04-25T18:34:55.157Z",
+              "DocumentIndex": 3,
+              "Title": "EditMasterAccount.cshtml",
+              "DocumentMoniker": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Views\\NonAdmin\\EditMasterAccount.cshtml",
+              "RelativeDocumentMoniker": "Group13iFinanceFix\\Views\\NonAdmin\\EditMasterAccount.cshtml",
+              "ToolTip": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Views\\NonAdmin\\EditMasterAccount.cshtml",
+              "RelativeToolTip": "Group13iFinanceFix\\Views\\NonAdmin\\EditMasterAccount.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAB9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-25T18:56:38.086Z",
               "EditorCaption": ""
             }
           ]

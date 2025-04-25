@@ -147,8 +147,19 @@ namespace Group13iFinanceFix.Controllers
             var group = db.GroupTable.Find(id);
             if (group != null)
             {
+                // Check if there are any associated Master accounts
+                if (db.MasterAccount.Where(m => m.accountGroup == group.ID).Any())
+                {
+                    // Don't try to delete it if there are
+                    TempData["ErrorMessage"] = "Cannot delete the group because it has associated MasterAccount records.";
+                    return RedirectToAction("AccountGroups");
+                }
+
                 // Recursively delete all child groups
-                DeleteChildGroups(group.ID);
+                if (!DeleteChildGroups(group.ID))
+                {
+                    return RedirectToAction("AccountGroups");
+                }
 
                 // Delete the parent group
                 db.GroupTable.Remove(group);
@@ -157,15 +168,26 @@ namespace Group13iFinanceFix.Controllers
 
             return RedirectToAction("AccountGroups");
         }
-        private void DeleteChildGroups(string parentId)
+        private bool DeleteChildGroups(string parentId)
         {
             // Find all child groups where parent matches the given parentId
             var childGroups = db.GroupTable.Where(g => g.parent == parentId).ToList();
 
             foreach (var childGroup in childGroups)
             {
+                // Check if there are any associated Master accounts
+                if (db.MasterAccount.Where(m => m.accountGroup == childGroup.ID).Any())
+                {
+                    // Don't try to delete it if there are
+                    TempData["ErrorMessage"] = "Cannot delete the group because it has associated MasterAccount records.";
+                    return false;
+                }
+
                 // Recursively delete the children of the current child group
-                DeleteChildGroups(childGroup.ID);
+                if (!DeleteChildGroups(childGroup.ID))
+                {
+                    return false;
+                }
 
                 // Delete the current child group
                 db.GroupTable.Remove(childGroup);
@@ -173,6 +195,8 @@ namespace Group13iFinanceFix.Controllers
 
             // Save changes after removing all child groups
             db.SaveChanges();
+
+            return true;
         }
 
         // GET: NonAdmin/ChartOfAccounts
