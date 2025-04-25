@@ -19,19 +19,19 @@
         <div class="form-group">
             @Html.LabelFor(m => m.name, "Account Name")
             @Html.TextBoxFor(m => m.name, new { @class = "form-control", required = true })
-            @Html.ValidationMessageFor(m => m.name, "Account Name is required.", new { @class = "text-danger" })
+            @*@Html.ValidationMessageFor(m => m.name, "Account Name is required.", new { @class = "text-danger" })*@
         </div>
 
         <div class="form-group">
             @Html.LabelFor(m => m.openingAmount, "Opening Amount")
             @Html.TextBoxFor(m => m.openingAmount, new { @class = "form-control", type = "number", step = "0.01", required = true })
-            @Html.ValidationMessageFor(m => m.openingAmount, "Opening Amount is required.", new { @class = "text-danger" })
+            @*@Html.ValidationMessageFor(m => m.openingAmount, "Opening Amount is required.", new { @class = "text-danger" })*@
         </div>
 
         <div class="form-group">
             @Html.LabelFor(m => m.accountGroup, "Account Group")
             @Html.DropDownListFor(m => m.accountGroup, (SelectList)ViewBag.Groups, "Select Group", new { @class = "form-control", required = true })
-            @Html.ValidationMessageFor(m => m.accountGroup, "Account Group is required.", new { @class = "text-danger" })
+            @*@Html.ValidationMessageFor(m => m.accountGroup, "Account Group is required.", new { @class = "text-danger" })*@
         </div>
 
         <button type="submit" class="btn btn-primary">Save Changes</button>

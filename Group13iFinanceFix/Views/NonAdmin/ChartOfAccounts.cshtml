@@ -17,7 +17,7 @@
             <table class="table table-bordered table-striped">
                 <thead class="thead-dark">
                     <tr>
-                        <th>Account ID</th>
+                        @*<th>Account ID</th>*@
                         <th>Account Name</th>
                         <th>Opening Amount</th>
                         <th>Closing Amount</th>
@@ -31,7 +31,7 @@
                         foreach (var account in Model)
                         {
                             <tr>
-                                <td>@account.ID</td>
+                                @*<td>@account.ID</td>*@
                                 <td>@account.name</td>
                                 <td>@account.openingAmount.ToString()</td>
                                 @{
