@@ -1,0 +1,19 @@
+﻿
+@model Group13iFinanceFix.Models.iFINANCEUser
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h3>@ViewBag.Title</h3>
+<hr class="my-4">
+
+<h1>Welcome, @Model.UsersName!</h1>
+
+<div style="display: flex; column-gap: 20px;">
+    <div class="mt-4">
+        <a class="btn btn-primary btn-m" href="/NonAdmin/AccountGroups">Account groups</a>
+    </div>
+    <div class="mt-4">
+        <a class="btn btn-primary btn-m" href="/NonAdmin/ChartOfAccounts">Chart of Accounts</a>
+    </div>
+</div>

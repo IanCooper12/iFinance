@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Group13iFinanceFix.Models.MasterAccount>
+
+@{
+    ViewBag.Title = "Manage Chart of Accounts";
+}
+
+<h3>@ViewBag.Title</h3>
+<hr class="my-4">
+
+<div class="mb-3">
+    <a class="btn btn-secondary" href="/NonAdmin/NonAdminDashboard">&larr; Back to Dashboard</a>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Account ID</th>
+                        <th>Account Name</th>
+                        <th>Opening Amount</th>
+                        <th>Closing Amount</th>
+                        <th>Account Group</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var account in Model)
+                        {
+                            <tr>
+                                <td>@account.ID</td>
+                                <td>@account.name</td>
+                                <td>@account.openingAmount.ToString()</td>
+                                @{
+                                    var closingAmount = account.closingAmount.ToString();
+                                    <td>@closingAmount</td>
+                                }
+                                @{
+                                    var groupName = account.GroupTable?.groupName;
+                                    <td>@groupName</td>
+                                }
+                                <td>
+                                    <a href="@Url.Action("EditMasterAccount", "NonAdmin", new { id = account.ID })" class="btn btn-sm btn-warning">Edit</a>
+                                    <form action="@Url.Action("DeleteMasterAccount", "NonAdmin", new { id = account.ID })" method="post" style="display:inline;">
+                                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this account?');">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center">No accounts available</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <a href="@Url.Action("AddMasterAccount", "NonAdmin")" class="btn btn-primary">Add Master Account</a>
+        </div>
+    </div>
+</div>

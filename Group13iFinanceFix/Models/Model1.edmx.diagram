@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="465c9bc26b1949c49670aedcbdb42966" Name="Diagram1">
+        <EntityTypeShape EntityType="Group13_iFINANCEDBModel.AccountCategory" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Group13_iFINANCEDBModel.Administrator" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Group13_iFINANCEDBModel.FinanceTransaction" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Group13_iFINANCEDBModel.GroupTable" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Group13_iFINANCEDBModel.iFINANCEUser" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Group13_iFINANCEDBModel.MasterAccount" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Group13_iFINANCEDBModel.NonAdminUser" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Group13_iFINANCEDBModel.TransactionLine" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Group13_iFINANCEDBModel.UserPassword" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <AssociationConnector Association="Group13_iFINANCEDBModel.FK__GroupTabl__eleme__51300E55" ManuallyRouted="false" />
+        <AssociationConnector Association="Group13_iFINANCEDBModel.FK__Administrato__ID__489AC854" ManuallyRouted="false" />
+        <AssociationConnector Association="Group13_iFINANCEDBModel.FK__FinanceTr__autho__56E8E7AB" ManuallyRouted="false" />
+        <AssociationConnector Association="Group13_iFINANCEDBModel.FK__Transacti__trans__59C55456" ManuallyRouted="false" />
+        <AssociationConnector Association="Group13_iFINANCEDBModel.FK__GroupTabl__paren__503BEA1C" ManuallyRouted="false" />
+        <AssociationConnector Association="Group13_iFINANCEDBModel.FK__MasterAcc__accou__540C7B00" ManuallyRouted="false" />
+        <AssociationConnector Association="Group13_iFINANCEDBModel.FK__NonAdminUser__ID__4B7734FF" ManuallyRouted="false" />
+        <AssociationConnector Association="Group13_iFINANCEDBModel.FK__UserPassword__ID__45BE5BA9" ManuallyRouted="false" />
+        <AssociationConnector Association="Group13_iFINANCEDBModel.FK__Transacti__first__5AB9788F" ManuallyRouted="false" />
+        <AssociationConnector Association="Group13_iFINANCEDBModel.FK__Transacti__secon__5BAD9CC8" ManuallyRouted="false" />
+        <AssociationConnector Association="Group13_iFINANCEDBModel.FK__GroupTabl__userI__45F365D3" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

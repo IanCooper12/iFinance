@@ -1,0 +1,28 @@
+﻿
+@model IEnumerable<Group13iFinanceFix.Models.iFINANCEUser>
+
+@{
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<h2>Registered Users</h2>
+
+<table class="table">
+    <thead>
+        <!-- Table headers for user ID and username -->
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Loop through each user in the model list and display ID and Username -->
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.ID</td>
+                <td>@user.UsersName</td>
+            </tr>
+        }
+    </tbody>
+</table>

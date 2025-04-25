@@ -1,0 +1,34 @@
+﻿@model Group13iFinanceFix.Models.MasterAccount
+
+@{
+    ViewBag.Title = "Add Master Account";
+}
+
+<h3>@ViewBag.Title</h3>
+<hr class="my-4">
+
+<div class="mb-3">
+    <a class="btn btn-secondary" href="/NonAdmin/ChartOfAccounts">&larr; Back to Chart of Accounts</a>
+</div>
+
+<div class="container">
+    @using (Html.BeginForm("AddMasterAccount", "NonAdmin", FormMethod.Post))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.name, "Account Name")
+            @Html.TextBoxFor(m => m.name, new { @class = "form-control", required = true, })
+            @*@Html.ValidationMessageFor(m => m.name, "Account name required", new { @class = "text-danger" })*@
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.openingAmount, "Opening Amount")
+            @Html.TextBoxFor(m => m.openingAmount, new { @class = "form-control", type = "number", step = "0.01", required = true, })
+            @*@Html.ValidationMessageFor(m => m.openingAmount, "Opening amount required", new { @class = "text-danger" })*@
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.accountGroup, "Account Group")
+            @Html.DropDownListFor(m => m.accountGroup, (SelectList)ViewBag.Groups, "Select Group", new { @class = "form-control", required = true, })
+            @*@Html.ValidationMessageFor(m => m.accountGroup, "Account group required", new { @class = "text-danger" })*@
+        </div>
+        <button type="submit" class="btn btn-primary">Add Account</button>
+    }
+</div>

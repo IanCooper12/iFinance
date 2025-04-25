@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Group13_iFINANCEDBModelStoreContainer" CdmEntityContainer="Group13_iFINANCEDBEntities1">
+    <EntitySetMapping Name="AccountCategory">
+      <EntityTypeMapping TypeName="Group13_iFINANCEDBModel.AccountCategory">
+        <MappingFragment StoreEntitySet="AccountCategory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="accountName" ColumnName="accountName" />
+          <ScalarProperty Name="accountType" ColumnName="accountType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Administrator">
+      <EntityTypeMapping TypeName="Group13_iFINANCEDBModel.Administrator">
+        <MappingFragment StoreEntitySet="Administrator">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="dateHired" ColumnName="dateHired" />
+          <ScalarProperty Name="dateFinished" ColumnName="dateFinished" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinanceTransaction">
+      <EntityTypeMapping TypeName="Group13_iFINANCEDBModel.FinanceTransaction">
+        <MappingFragment StoreEntitySet="FinanceTransaction">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+          <ScalarProperty Name="TransactionDescription" ColumnName="TransactionDescription" />
+          <ScalarProperty Name="authorID" ColumnName="authorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupTable">
+      <EntityTypeMapping TypeName="Group13_iFINANCEDBModel.GroupTable">
+        <MappingFragment StoreEntitySet="GroupTable">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="groupName" ColumnName="groupName" />
+          <ScalarProperty Name="parent" ColumnName="parent" />
+          <ScalarProperty Name="element" ColumnName="element" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="iFINANCEUser">
+      <EntityTypeMapping TypeName="Group13_iFINANCEDBModel.iFINANCEUser">
+        <MappingFragment StoreEntitySet="iFINANCEUser">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UsersName" ColumnName="UsersName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MasterAccount">
+      <EntityTypeMapping TypeName="Group13_iFINANCEDBModel.MasterAccount">
+        <MappingFragment StoreEntitySet="MasterAccount">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="openingAmount" ColumnName="openingAmount" />
+          <ScalarProperty Name="closingAmount" ColumnName="closingAmount" />
+          <ScalarProperty Name="accountGroup" ColumnName="accountGroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NonAdminUser">
+      <EntityTypeMapping TypeName="Group13_iFINANCEDBModel.NonAdminUser">
+        <MappingFragment StoreEntitySet="NonAdminUser">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="StreetAddress" ColumnName="StreetAddress" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransactionLine">
+      <EntityTypeMapping TypeName="Group13_iFINANCEDBModel.TransactionLine">
+        <MappingFragment StoreEntitySet="TransactionLine">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="creditedAmount" ColumnName="creditedAmount" />
+          <ScalarProperty Name="debitAmount" ColumnName="debitAmount" />
+          <ScalarProperty Name="comment" ColumnName="comment" />
+          <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+          <ScalarProperty Name="firstMasterAccount" ColumnName="firstMasterAccount" />
+          <ScalarProperty Name="secondMasterAccount" ColumnName="secondMasterAccount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserPassword">
+      <EntityTypeMapping TypeName="Group13_iFINANCEDBModel.UserPassword">
+        <MappingFragment StoreEntitySet="UserPassword">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="encryptedPassword" ColumnName="encryptedPassword" />
+          <ScalarProperty Name="passwordExpiryTime" ColumnName="passwordExpiryTime" />
+          <ScalarProperty Name="userAccountExpiryDate" ColumnName="userAccountExpiryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

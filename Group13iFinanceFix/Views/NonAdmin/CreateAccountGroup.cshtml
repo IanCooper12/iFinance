@@ -1,0 +1,39 @@
+﻿@model Group13iFinanceFix.Models.GroupTable
+
+@{
+    ViewBag.Title = "Create Account Group";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="mb-3">
+    <a class="btn btn-secondary" href="/NonAdmin/AccountGroups">&larr; Back to Account Groups</a>
+</div>
+
+@using (Html.BeginForm("CreateAccountGroup", "NonAdmin", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="groupName">Group Name</label>
+        @Html.TextBoxFor(model => model.groupName, new { @class = "form-control", id = "groupName", placeholder = "Enter group name", required = true })
+        @Html.ValidationMessageFor(model => model.groupName, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label for="parent">Parent</label>
+        @Html.TextBoxFor(model => model.parent, new { @class = "form-control", id = "parent", placeholder = "Enter parent group name (optional)" })
+    </div>
+
+    <div class="form-group">
+        <label for="element">Category</label>
+        <select id="element" name="element" class="form-control" required>
+            <option value="">Select a category</option>
+            @foreach (var category in ViewBag.Categories as List<Group13iFinanceFix.Models.AccountCategory>)
+            {
+                <option value="@category.ID">@category.accountName</option>
+            }
+        </select>
+        <span class="text-danger" data-valmsg-for="element" data-valmsg-replace="true"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Create Group</button>
+}
