@@ -1,0 +1,42 @@
+﻿@model Group13iFinanceFix.Models.FinanceTransaction
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FinanceTransaction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransactionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransactionDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NonAdminUser.StreetAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NonAdminUser.StreetAddress)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
