@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Profit and Loss";
+}
+
+<h2>Profit and Loss</h2>
+
+<!-- Show Income -->
+<h4>Income</h4>
+<table class="table">
+    <tr><th>Account</th><th>Amount</th></tr>
+    @foreach (var item in ViewBag.Income)
+    {
+        <tr><td>@item.AccountName</td><td>$@item.Amount</td></tr>
+    }
+</table>
+
+<!-- Show Expenses -->
+<h4>Expenses</h4>
+<table class="table">
+    <tr><th>Account</th><th>Amount</th></tr>
+    @foreach (var item in ViewBag.Expenses)
+    {
+        <tr><td>@item.AccountName</td><td>$@item.Amount</td></tr>
+    }
+</table>
+
+<!-- Net Profit ) -->
+<h4>Net Profit</h4>
+<p>
+    $@(ViewBag.TotalIncome - ViewBag.TotalExpenses)
+</p>

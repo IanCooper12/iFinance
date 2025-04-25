@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Balance Sheet";
+}
+
+<h2>Balance Sheet</h2>
+<!-- print information in assets, liabilities, and equity $ -->
+<h4>Assets</h4>
+<table class="table">
+    <tr><th>Account</th><th>Amount</th></tr>
+    @foreach (var item in ViewBag.Assets as List<Group13iFinanceFix.Models.ReportEntry>)
+    {
+        <tr><td>@item.AccountName</td><td>$@item.Amount</td></tr>
+    }
+</table>
+
+<h4>Liabilities</h4>
+<table class="table">
+    <tr><th>Account</th><th>Amount</th></tr>
+    @foreach (var item in ViewBag.Liabilities as List<Group13iFinanceFix.Models.ReportEntry>)
+    {
+        <tr><td>@item.AccountName</td><td>$@item.Amount</td></tr>
+    }
+</table>
+
+<h4>Equity</h4>
+<table class="table">
+    <tr><th>Account</th><th>Amount</th></tr>
+    @foreach (var item in ViewBag.Equity as List<Group13iFinanceFix.Models.ReportEntry>)
+    {
+        <tr><td>@item.AccountName</td><td>$@item.Amount</td></tr>
+    }
+</table>
+
