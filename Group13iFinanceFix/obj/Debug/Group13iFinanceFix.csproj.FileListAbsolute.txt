@@ -101,6 +101,7 @@ C:\Projects\Group13iFinance\Group13iFinanceFix\bin\roslyn\Microsoft.DiaSymReader
 C:\Projects\Group13iFinance\Group13iFinanceFix\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
 C:\Projects\Group13iFinance\Group13iFinanceFix\bin\roslyn\Microsoft.Managed.Core.targets
 C:\Projects\Group13iFinance\Group13iFinanceFix\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Projects\Group13iFinance\Group13iFinanceFix\bin\roslyn\Microsoft.Win32.Primitives.dll
 C:\Projects\Group13iFinance\Group13iFinanceFix\bin\roslyn\System.AppContext.dll
 C:\Projects\Group13iFinance\Group13iFinanceFix\bin\roslyn\System.Collections.Immutable.dll
 C:\Projects\Group13iFinance\Group13iFinanceFix\bin\roslyn\System.Console.dll
