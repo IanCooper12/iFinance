@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Projects\\Group13iFinanceFix\\",
+  "WorkspaceRootPath": "C:\\Projects\\Group13iFinance\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|c:\\projects\\group13ifinancefix\\group13ifinancefix\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|c:\\projects\\group13ifinance\\group13ifinancefix\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|solutionrelative:group13ifinancefix\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|c:\\projects\\group13ifinancefix\\group13ifinancefix\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "AbsoluteMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|C:\\Projects\\Group13iFinance\\group13ifinancefix\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
       "RelativeMoniker": "D:0:0:{37B60EB2-439B-4D25-8A67-62FFF2394BBF}|Group13iFinanceFix\\Group13iFinanceFix.csproj|solutionrelative:group13ifinancefix\\views\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
@@ -18,17 +18,25 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:5:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:3:0:{fabf9319-47eb-497e-b8f6-d9f73fba5f55}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Web.config",
-              "DocumentMoniker": "C:\\Projects\\Group13iFinanceFix\\Group13iFinanceFix\\Web.config",
+              "DocumentMoniker": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Web.config",
               "RelativeDocumentMoniker": "Group13iFinanceFix\\Web.config",
-              "ToolTip": "C:\\Projects\\Group13iFinanceFix\\Group13iFinanceFix\\Web.config",
+              "ToolTip": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Web.config",
               "RelativeToolTip": "Group13iFinanceFix\\Web.config",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAD8AAADtAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAvwD8AAADsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
               "WhenOpened": "2025-04-25T18:36:27.046Z",
               "EditorCaption": ""
@@ -37,9 +45,9 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Web.config",
-              "DocumentMoniker": "C:\\Projects\\Group13iFinanceFix\\Group13iFinanceFix\\Views\\Web.config",
+              "DocumentMoniker": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Views\\Web.config",
               "RelativeDocumentMoniker": "Group13iFinanceFix\\Views\\Web.config",
-              "ToolTip": "C:\\Projects\\Group13iFinanceFix\\Group13iFinanceFix\\Views\\Web.config",
+              "ToolTip": "C:\\Projects\\Group13iFinance\\Group13iFinanceFix\\Views\\Web.config",
               "RelativeToolTip": "Group13iFinanceFix\\Views\\Web.config",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
