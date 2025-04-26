@@ -1,14 +1,50 @@
 ﻿
-@model Group13iFinanceFix.Models.iFINANCEUser
+@model Group13iFinanceFix.Models.NonAdminUser
 @{
     ViewBag.Title = "Dashboard";
 }
 
-<h3>@ViewBag.Title</h3>
-<hr class="my-4">
+<h2>Welcome, @ViewBag.UsersName</h2>
+<p>Your Email is: @Model.Email!</p>
+<p>Your ID is: @Model.ID</p>
+<p>Street Address: @Model.StreetAddress</p>
 
-<h1>Welcome, @Model.UsersName!</h1>
 
+<hr />
+
+<!-- Account Management with ability to change password-->
+<h4 class="mt-4">Account Settings</h4>
+<div class="btn-group mb-3" role="group">
+    <a href="/NonAdmin/ChangePassword" class="btn btn-warning">Change Password</a>
+</div>
+
+<!-- Financial Accounts -->
+<h4>Account Groups</h4>
+<div class="btn-group mb-3" role="group">
+    <a href="/NonAdmin/ViewGroups" class="btn btn-outline-primary">View Groups</a>
+    <a href="/NonAdmin/AddGroup" class="btn btn-outline-success">Add Group</a>
+</div>
+
+<!-- Chart of Accounts -->
+<h4>Chart of Accounts</h4>
+<div class="btn-group mb-3" role="group">
+    <a href="/NonAdmin/ViewAccounts" class="btn btn-outline-primary">View Accounts</a>
+    <a href="/NonAdmin/AddAccount" class="btn btn-outline-success">Add Account</a>
+</div>
+
+<!-- Double-Entry Transactions -->
+<h4>Transactions</h4>
+<div class="btn-group mb-3" role="group">
+    <a href="/NonAdmin/AddTransaction" class="btn btn-outline-primary">Begin Transaction</a>
+    <a href="/NonAdmin/ViewTransactions" class="btn btn-outline-success">View Transactions</a>
+</div>
+
+<!-- Reports -->
+<h4>Reports</h4>
+<div class="btn-group mb-3" role="group">
+    <a href="/NonAdmin/ProfitAndLoss" class="btn btn-outline-dark">Profit & Loss Statement</a>
+    <a href="/NonAdmin/BalanceSheet" class="btn btn-outline-dark">Balance Sheet</a>
+</div>
 <div style="display: flex; column-gap: 20px;">
     <div class="mt-4">
         <a class="btn btn-primary btn-m" href="/NonAdmin/AccountGroups">Account groups</a>

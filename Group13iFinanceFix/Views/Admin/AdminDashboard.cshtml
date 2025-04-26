@@ -3,6 +3,7 @@
 
 @{
     ViewBag.Title = "Admin Dashboard";
+    var adminIDs = ViewBag.AdminIDs as List<string> ?? new List<string>();// Get list of admin IDs from ViewBag
 }
 
 <h2>Registered Users</h2>
@@ -22,6 +23,12 @@
             <tr>
                 <td>@user.ID</td>
                 <td>@user.UsersName</td>
+                <td>
+                    @if (!adminIDs.Contains(user.ID))  // Only show Edit button for non-admins
+                    {
+                        <a href="@Url.Action("EditUser", "Admin", new { id = user.ID })" class="btn btn-sm btn-primary">Edit</a>
+                    }
+                </td>
             </tr>
         }
     </tbody>

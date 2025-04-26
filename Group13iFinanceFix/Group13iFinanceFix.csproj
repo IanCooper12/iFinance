@@ -143,7 +143,9 @@
     <Compile Include="Models\Administrator.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ChangePasswordViewModel.cs" />
     <Compile Include="Models\FinanceTransactionViewModel.cs" />
+    <Compile Include="Models\ForgotPasswordViewModel.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\FinanceTransaction.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -175,6 +177,8 @@
     <Compile Include="Models\NonAdminUser.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\RegisterViewModel.cs" />
+    <Compile Include="Models\ReportEntryViewModel.cs" />
     <Compile Include="Models\TransactionLine.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -257,6 +261,12 @@
     <Content Include="Views\NonAdmin\ChartOfAccounts.cshtml" />
     <Content Include="Views\NonAdmin\AddMasterAccount.cshtml" />
     <Content Include="Views\NonAdmin\EditMasterAccount.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Admin\EditUser.cshtml" />
+    <Content Include="Views\NonAdmin\BalanceSheet.cshtml" />
+    <Content Include="Views\NonAdmin\ChangePassword.cshtml" />
+    <Content Include="Views\NonAdmin\ProfitAndLoss.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

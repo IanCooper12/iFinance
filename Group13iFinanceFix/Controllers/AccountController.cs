@@ -42,5 +42,106 @@ namespace Group13iFinanceFix.Controllers
             ViewBag.Message = "Invalid username or password.";
             return View(model);
         }
+
+
+        [HttpGet]
+        public ActionResult Register() //Registration form
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(RegisterViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            using (var db = new Group13_iFINANCEDBEntities1())
+            {
+                var newUser = new iFINANCEUser
+                {
+                    ID = model.ID,
+                    UsersName = model.UsersName
+                };
+                db.iFINANCEUser.Add(newUser);
+
+                var userPassword = new UserPassword //Set all user values
+                {
+                    ID = model.ID,
+                    userName = model.Username,
+                    encryptedPassword = model.Password,
+                    passwordExpiryTime = 90,
+                    userAccountExpiryDate = DateTime.Now.AddYears(1)
+                };
+                db.UserPassword.Add(userPassword);
+
+                if (model.IsAdmin) //if adding an admin theres different logic
+                {
+                    var admin = new Administrator
+                    {
+                        ID = model.ID,
+                        dateHired = DateTime.Now
+                    };
+                    db.Administrator.Add(admin);
+                }
+                else
+                {
+                    var nonAdmin = new NonAdminUser
+                    {
+                        ID = model.ID,
+                        StreetAddress = model.StreetAddress,
+                        Email = model.Email
+                    };
+                    db.NonAdminUser.Add(nonAdmin);
+                }
+
+                db.SaveChanges();
+            }
+
+            TempData["Success"] = "User registered successfully!";
+            return RedirectToAction("AdminDashboard", "Admin"); //Go back to the dashboard after registered
+        }
+        [HttpGet]
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ForgotPassword(ForgotPasswordViewModel model)
+        {//Forgot password logic. and check to make sure passwords match
+            if (!ModelState.IsValid)
+                return View(model);
+
+            if (model.NewPassword != model.ConfirmPassword)
+            {
+                ViewBag.Message = "New passwords do not match.";
+                return View(model);
+            }
+
+            using (var db = new Group13_iFINANCEDBEntities1())
+            {
+                // Only allow password reset for non-admin users
+                var user = db.NonAdminUser.FirstOrDefault(u => u.Email == model.Email);
+                if (user == null)
+                {
+                    ViewBag.Message = "Email not found or not a non-admin account.";
+                    return View(model);
+                }
+
+                var password = db.UserPassword.FirstOrDefault(p => p.ID == user.ID);
+                if (password == null)
+                {
+                    ViewBag.Message = "Password record not found.";
+                    return View(model);
+                }
+
+                password.encryptedPassword = model.NewPassword;
+                db.SaveChanges();
+
+                TempData["Success"] = "Password reset successfully.";
+                return RedirectToAction("Login");
+            }
+        }
     }
 }
