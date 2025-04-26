@@ -9,7 +9,8 @@
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Create Finance Transaction</h4>
+    <br />
+    <h2>Create Transaction</h2>
     <hr />
     <div class="mb-3">
         <a class="btn back-button" href="/FinanceTransactions/Index">&larr; Back to List</a>
@@ -46,6 +47,7 @@
             @Html.ValidationMessageFor(model => model.Transaction.authorID, "", new { @class = "text-danger" })
         </div>
     </div>
+    <br />
     <h4>Transaction Lines</h4>
     <table class="table">
         <thead>
@@ -73,7 +75,7 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Create" class="btn btn-default btn-primary" />
+            <input type="submit" value="Create" class="btn btn-default btn-outline-success" />
         </div>
     </div>
 </div>
