@@ -8,7 +8,7 @@
 <hr class="my-4">
 
 <div class="mb-3">
-    <a class="btn btn-secondary" href="/NonAdmin/ChartOfAccounts">&larr; Back to Chart of Accounts</a>
+    <a class="btn back-button" href="/NonAdmin/ChartOfAccounts">&larr; Back to Chart of Accounts</a>
 </div>
 
 <div class="container">
@@ -33,7 +33,7 @@
             @Html.DropDownListFor(m => m.accountGroup, (SelectList)ViewBag.Groups, "Select Group", new { @class = "form-control", required = true })
             @*@Html.ValidationMessageFor(m => m.accountGroup, "Account Group is required.", new { @class = "text-danger" })*@
         </div>
-
-        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <br />
+        <button type="submit" class="btn btn-outline-success">Save Changes</button>
     }
 </div>

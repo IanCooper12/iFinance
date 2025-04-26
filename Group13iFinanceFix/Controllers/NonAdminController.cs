@@ -292,7 +292,9 @@ namespace Group13iFinanceFix.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(masterAccount).State = System.Data.Entity.EntityState.Modified;
+                var entry = db.Entry(masterAccount);
+                entry.State = System.Data.Entity.EntityState.Modified;
+                //entry.Entity.closingAmount = entry.Entity.openingAmount; // change so it takes transactions into account
                 db.SaveChanges();
                 return RedirectToAction("ChartOfAccounts");
             }
