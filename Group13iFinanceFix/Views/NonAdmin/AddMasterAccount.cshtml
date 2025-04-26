@@ -7,11 +7,11 @@
 <h3>@ViewBag.Title</h3>
 <hr class="my-4">
 
-<div class="mb-3">
-    <a class="btn btn-secondary" href="/NonAdmin/ChartOfAccounts">&larr; Back to Chart of Accounts</a>
-</div>
-
 <div class="container">
+    <div class="mb-3">
+        <a class="btn back-button" href="/NonAdmin/ChartOfAccounts">&larr; Back to Chart of Accounts</a>
+    </div>
+
     @using (Html.BeginForm("AddMasterAccount", "NonAdmin", FormMethod.Post))
     {
         <div class="form-group">
@@ -29,6 +29,7 @@
             @Html.DropDownListFor(m => m.accountGroup, (SelectList)ViewBag.Groups, "Select Group", new { @class = "form-control", required = true, })
             @*@Html.ValidationMessageFor(m => m.accountGroup, "Account group required", new { @class = "text-danger" })*@
         </div>
-        <button type="submit" class="btn btn-primary">Add Account</button>
+        <br />
+        <button type="submit" class="btn btn-outline-success">Add Account</button>
     }
 </div>

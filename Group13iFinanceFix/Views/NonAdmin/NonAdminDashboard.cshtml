@@ -5,7 +5,7 @@
 }
 
 <h2>Welcome, @ViewBag.UsersName</h2>
-<p>Your Email is: @Model.Email!</p>
+<p>Your Email is: @Model.Email</p>
 <p>Your ID is: @Model.ID</p>
 <p>Street Address: @Model.StreetAddress</p>
 
@@ -21,15 +21,15 @@
 <!-- Financial Accounts -->
 <h4>Account Groups</h4>
 <div class="btn-group mb-3" role="group">
-    <a href="/NonAdmin/ViewGroups" class="btn btn-outline-primary">View Groups</a>
-    <a href="/NonAdmin/AddGroup" class="btn btn-outline-success">Add Group</a>
+    <a href="/NonAdmin/AccountGroups" class="btn btn-outline-primary">View Groups</a>
+    @*<a href="/NonAdmin/AddGroup" class="btn btn-outline-success">Add Group</a>*@
 </div>
 
 <!-- Chart of Accounts -->
 <h4>Chart of Accounts</h4>
 <div class="btn-group mb-3" role="group">
-    <a href="/NonAdmin/ViewAccounts" class="btn btn-outline-primary">View Accounts</a>
-    <a href="/NonAdmin/AddAccount" class="btn btn-outline-success">Add Account</a>
+    <a href="/NonAdmin/ChartOfAccounts" class="btn btn-outline-primary">View Accounts</a>
+    @*<a href="/NonAdmin/AddAccount" class="btn btn-outline-success">Add Account</a>*@
 </div>
 
 <!-- Double-Entry Transactions -->
@@ -44,12 +44,4 @@
 <div class="btn-group mb-3" role="group">
     <a href="/NonAdmin/ProfitAndLoss" class="btn btn-outline-dark">Profit & Loss Statement</a>
     <a href="/NonAdmin/BalanceSheet" class="btn btn-outline-dark">Balance Sheet</a>
-</div>
-<div style="display: flex; column-gap: 20px;">
-    <div class="mt-4">
-        <a class="btn btn-primary btn-m" href="/NonAdmin/AccountGroups">Account groups</a>
-    </div>
-    <div class="mt-4">
-        <a class="btn btn-primary btn-m" href="/NonAdmin/ChartOfAccounts">Chart of Accounts</a>
-    </div>
 </div>
