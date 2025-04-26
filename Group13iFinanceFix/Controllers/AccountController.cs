@@ -61,7 +61,7 @@ namespace Group13iFinanceFix.Controllers
                 var newUser = new iFINANCEUser
                 {
                     ID = model.ID,
-                    UsersName = model.UsersName
+                    UsersName = model.Username
                 };
                 db.iFINANCEUser.Add(newUser);
 

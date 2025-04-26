@@ -6,7 +6,13 @@
     var adminIDs = ViewBag.AdminIDs as List<string> ?? new List<string>();// Get list of admin IDs from ViewBag
 }
 
+<br />
 <h2>Registered Users</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success mt-3">@TempData["Success"]</div>
+}
 
 <table class="table">
     <thead>
@@ -33,3 +39,7 @@
         }
     </tbody>
 </table>
+
+<div class="mb-3">
+    <a class="btn btn-outline-primary" href="/Account/Register">Register new account</a>
+</div>

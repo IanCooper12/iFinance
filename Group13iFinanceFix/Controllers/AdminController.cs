@@ -66,13 +66,43 @@ namespace Group13FinanceFix.Controllers
                 var user = db.iFINANCEUser.FirstOrDefault(u => u.ID == id); //find user
                 if (user != null)
                 {
+                    // Delete from Users
                     db.iFINANCEUser.Remove(user);
 
-                    var login = db.UserPassword.FirstOrDefault(p => p.ID == id); //remove from table
+                    // Remove password
+                    var login = db.UserPassword.FirstOrDefault(p => p.ID == id);
                     if (login != null) db.UserPassword.Remove(login);
 
-                    var nonAdmin = db.NonAdminUser.FirstOrDefault(n => n.ID == id); //remove from non admin table
-                    if (nonAdmin != null) db.NonAdminUser.Remove(nonAdmin);
+
+                    // remove from Non admin table
+                    var nonAdmin = db.NonAdminUser.FirstOrDefault(n => n.ID == id);
+                    if (nonAdmin != null) {
+                        db.NonAdminUser.Remove(nonAdmin);
+
+                        // Remove all TransactionLines
+                        var transactions = db.FinanceTransaction.Where(ft => ft.authorID == id).ToList();
+                        foreach (var transaction in transactions)
+                        {
+                            var transactionLines = db.TransactionLine.Where(tl => tl.transactionID == transaction.ID).ToList();
+                            db.TransactionLine.RemoveRange(transactionLines);
+                        }
+
+                        // Remove FinanceTransactions
+                        db.FinanceTransaction.RemoveRange(transactions);
+
+                        // Remove MasterAccount records
+                        var groups = db.GroupTable.Where(gt => gt.userId == id).ToList();
+                        var groupIds = groups.Select(g => g.ID).ToList();
+                        var masterAccounts = db.MasterAccount.Where(ma => groupIds.Contains(ma.accountGroup)).ToList();
+                        db.MasterAccount.RemoveRange(masterAccounts);
+
+                        // Remove Group records
+                        db.GroupTable.RemoveRange(groups);
+                    }
+
+                    // Remove from admin table
+                    var admin = db.Administrator.FirstOrDefault(n => n.ID == id); 
+                    if (admin != null) db.Administrator.Remove(admin);
 
                     db.SaveChanges();
                 }

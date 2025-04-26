@@ -24,7 +24,8 @@
         <label>Address</label>
         @Html.TextBox("Address", Model.NonAdminUser?.StreetAddress, new { @class = "form-control" }) <!--Address input-->
     </div>
-
+       
+    <br />
     <button type="submit" class="btn btn-success">Save Changes</button>
     <a href="@Url.Action("DeleteUser", "Admin", new { id = Model.ID })" class="btn btn-danger float-end" onclick="return confirm('Are you sure you want to delete this user?');">Delete User</a>
 }
