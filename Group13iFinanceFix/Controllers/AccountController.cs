@@ -47,6 +47,11 @@ namespace Group13iFinanceFix.Controllers
         [HttpGet]
         public ActionResult Register() //Registration form
         {
+            // Ensure the user is logged in
+            var userId = Session["UserID"] as string;
+            if (string.IsNullOrEmpty(userId)) return View("Error");
+            if (db.Administrator.FirstOrDefault(u => u.ID == userId) == null) return View("Error"); // Must be logged in as admin to access
+
             return View();
         }
 
@@ -55,6 +60,11 @@ namespace Group13iFinanceFix.Controllers
         {
             if (!ModelState.IsValid)
                 return View(model);
+
+            // Ensure the user is logged in as admin
+            var userId = Session["UserID"] as string;
+            if (string.IsNullOrEmpty(userId)) return View("Error");
+            if (db.Administrator.FirstOrDefault(u => u.ID == userId) == null) return View("Error"); // Must be logged in as admin to access
 
             using (var db = new Group13_iFINANCEDBEntities1())
             {

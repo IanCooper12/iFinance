@@ -13,6 +13,12 @@ namespace Group13FinanceFix.Controllers
         {
             using (var db = new Group13_iFINANCEDBEntities1()) //accessing the database
             {
+                // Ensure the user is logged in
+                var userId = Session["UserID"] as string;
+                if (string.IsNullOrEmpty(userId)) return View("Error");
+                var user = db.Administrator.FirstOrDefault(u => u.ID == userId);
+                if (user == null) return View("Error"); // Must be logged in as admin to access admin dashboard
+
                 var users = db.iFINANCEUser.ToList();//Store everything into a list
                 return View(users); //pass list to the view
             }
@@ -23,6 +29,11 @@ namespace Group13FinanceFix.Controllers
         {
             using (var db = new Group13_iFINANCEDBEntities1())
             {
+                // Ensure the user is logged in
+                var userId = Session["UserID"] as string;
+                if (string.IsNullOrEmpty(userId)) return View("Error");
+                if (db.Administrator.FirstOrDefault(u => u.ID == userId) == null) return View("Error"); // Must be logged in as admin to access
+
                 var user = db.iFINANCEUser
                              .Include("NonAdminUser") // Load related NonAdminUser
                              .FirstOrDefault(u => u.ID == id);
@@ -39,6 +50,11 @@ namespace Group13FinanceFix.Controllers
         {
             using (var db = new Group13_iFINANCEDBEntities1())
             {
+                // Ensure the user is logged in
+                var userId = Session["UserID"] as string;
+                if (string.IsNullOrEmpty(userId)) return View("Error");
+                if (db.Administrator.FirstOrDefault(u => u.ID == userId) == null) return View("Error"); // Must be logged in as admin to access
+
                 var user = db.iFINANCEUser.FirstOrDefault(u => u.ID == updatedUser.ID); //find the user
                 if (user != null)
                 {
@@ -63,6 +79,11 @@ namespace Group13FinanceFix.Controllers
         {
             using (var db = new Group13_iFINANCEDBEntities1())
             {
+                // Ensure the user is logged in
+                var userId = Session["UserID"] as string;
+                if (string.IsNullOrEmpty(userId)) return View("Error");
+                if (db.Administrator.FirstOrDefault(u => u.ID == userId) == null) return View("Error"); // Must be logged in as admin to access
+
                 var user = db.iFINANCEUser.FirstOrDefault(u => u.ID == id); //find user
                 if (user != null)
                 {
