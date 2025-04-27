@@ -32,9 +32,9 @@
                 <td>@{ var count = item.TransactionLine?.Count(); @Html.DisplayFor(modelItem => count) }</td>
 
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID, @class = "btn btn-default" }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID, @class = "btn btn-default" }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID, @class = "btn btn-default" })
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-sm btn-warning" })
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-sm btn-secondary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-sm btn-danger" })
                 </td>
             </tr>
         }
