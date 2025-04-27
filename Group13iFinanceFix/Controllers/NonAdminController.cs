@@ -406,13 +406,13 @@ namespace Group13iFinanceFix.Controllers
                     {
                         AccountName = ma.name,
                         Amount = ma.closingAmount ?? 0, //handles nulls
-                        AccountType = cat.accountType
+                        AccountType = cat.accountName
                     }
                 ).ToList();
 
                 //Filter between assest liability and equity
-                ViewBag.Assets = data.Where(d => d.AccountType == "Asset").ToList();
-                ViewBag.Liabilities = data.Where(d => d.AccountType == "Liability").ToList();
+                ViewBag.Assets = data.Where(d => d.AccountType == "Assets").ToList();
+                ViewBag.Liabilities = data.Where(d => d.AccountType == "Liabilities").ToList();
                 ViewBag.Equity = data.Where(d => d.AccountType == "Equity").ToList();
 
                 return View();
@@ -437,13 +437,13 @@ namespace Group13iFinanceFix.Controllers
                     {
                         AccountName = ma.name,
                         Amount = ma.closingAmount ?? 0, // fallback if null
-                        AccountType = cat.accountType
+                        AccountType = cat.accountName
                     }
                 ).ToList();
 
                 // filter types
                 ViewBag.Income = data.Where(d => d.AccountType == "Income").ToList();
-                ViewBag.Expenses = data.Where(d => d.AccountType == "Expense").ToList();
+                ViewBag.Expenses = data.Where(d => d.AccountType == "Expenses").ToList();
 
                 // cast back so we can sum it (lambda issue workaround)
                 var incomeList = ViewBag.Income as List<ReportEntry>;
