@@ -88,7 +88,6 @@ namespace Group13iFinanceFix.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(FinanceTransactionViewModel model)
         {
-
             // Ensure the user is logged in
             var userId = Session["UserID"] as string;
             if (string.IsNullOrEmpty(userId)) return View("Error");
@@ -114,6 +113,14 @@ namespace Group13iFinanceFix.Controllers
                 line.ID = Guid.NewGuid().ToString();
                 line.transactionID = model.Transaction.ID;
                 db.TransactionLine.Add(line);
+
+                // Update closing amounts for affected accounts
+                var firstAccount = db.MasterAccount.FirstOrDefault(m => m.ID == line.firstMasterAccount);
+
+                if (firstAccount != null)
+                {
+                    firstAccount.closingAmount = (firstAccount.closingAmount ?? 0) + (line.debitAmount ?? 0) - (line.creditedAmount ?? 0);
+                }
             }
 
             // Assume there are 2 lines and set the first/second master accounts
@@ -122,19 +129,12 @@ namespace Group13iFinanceFix.Controllers
             firstLine.secondMasterAccount = secondLine.firstMasterAccount;
             secondLine.secondMasterAccount = firstLine.firstMasterAccount;
 
-            // Ensure model is valid after required data is filled in (not working)
-            //if (!ModelState.IsValid)
-            //{
-            //    TempData["ErrorMessage"] = "Invalid data";
-            //    ViewBag.Accounts = new SelectList(db.MasterAccount, "ID", "name");
-            //    return View(model);
-            //}
-
             db.FinanceTransaction.Add(model.Transaction);
             db.SaveChanges();
 
             return RedirectToAction("Index");
         }
+
 
 
         // GET: FinanceTransactions/Edit/{id}
@@ -188,11 +188,29 @@ namespace Group13iFinanceFix.Controllers
         {
             var financeTransaction = db.FinanceTransaction.Find(id);
             var transactionLines = db.TransactionLine.Where(t => t.transactionID == id).ToList();
+
+            // Reverse the changes to closing amounts for affected 
+            foreach (var line in transactionLines)
+            {
+                var firstAccount = db.MasterAccount.FirstOrDefault(m => m.ID == line.firstMasterAccount);
+
+                if (firstAccount != null)
+                {
+                    firstAccount.closingAmount = (firstAccount.closingAmount ?? 0) - (line.debitAmount ?? 0) + (line.creditedAmount ?? 0);
+                    db.Entry(firstAccount).State = EntityState.Modified; // Mark as modified
+                }
+            }
+
             db.TransactionLine.RemoveRange(transactionLines);
             db.FinanceTransaction.Remove(financeTransaction);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
+
+
+
+
 
         protected override void Dispose(bool disposing)
         {

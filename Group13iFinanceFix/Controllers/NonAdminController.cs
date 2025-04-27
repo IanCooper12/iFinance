@@ -292,13 +292,30 @@ namespace Group13iFinanceFix.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Calculate the total debits for the account
+                var totalDebits = db.TransactionLine
+                    .Where(t => t.firstMasterAccount == masterAccount.ID)
+                    .Sum(t => (double?)t.debitAmount) ?? 0;
+
+                // Calculate the total debits where the account is the secondMasterAccount
+                var totalCredits = db.TransactionLine
+                    .Where(t => t.firstMasterAccount == masterAccount.ID)
+                    .Sum(t => (double?)t.creditedAmount) ?? 0;
+
+                // Update the closing amount
+                masterAccount.closingAmount = (masterAccount.openingAmount ?? 0)
+                                              + totalDebits
+                                              - totalCredits;
+
+                // Mark the entity as modified and save changes
                 var entry = db.Entry(masterAccount);
                 entry.State = System.Data.Entity.EntityState.Modified;
-                //entry.Entity.closingAmount = entry.Entity.openingAmount; // change so it takes transactions into account
                 db.SaveChanges();
+
                 return RedirectToAction("ChartOfAccounts");
             }
 
+            // If the model is invalid, reload the groups for the dropdown and return the view
             var userId = Session["UserID"] as string;
             var userGroups = db.GroupTable
                 .Where(g => g.userId == userId)
@@ -308,6 +325,8 @@ namespace Group13iFinanceFix.Controllers
             ViewBag.Groups = new SelectList(userGroups, "ID", "groupName", masterAccount.accountGroup);
             return View(masterAccount);
         }
+
+
 
         // POST: NonAdmin/DeleteMasterAccount/{id}
         [HttpPost]
