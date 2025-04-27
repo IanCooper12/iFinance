@@ -402,6 +402,7 @@ namespace Group13iFinanceFix.Controllers
                     from ma in db.MasterAccount
                     join grp in db.GroupTable on ma.accountGroup equals grp.ID
                     join cat in db.AccountCategory on grp.element equals cat.ID
+                    where grp.userId == userId
                     select new ReportEntry
                     {
                         AccountName = ma.name,
@@ -433,6 +434,7 @@ namespace Group13iFinanceFix.Controllers
                     from ma in db.MasterAccount
                     join grp in db.GroupTable on ma.accountGroup equals grp.ID
                     join cat in db.AccountCategory on grp.element equals cat.ID
+                    where grp.userId == userId
                     select new ReportEntry
                     {
                         AccountName = ma.name,
@@ -455,10 +457,6 @@ namespace Group13iFinanceFix.Controllers
                 return View(); // push to view
             }
         }
-
-
-
-
     }
 }
    

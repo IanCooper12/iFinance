@@ -64,6 +64,12 @@ namespace Group13iFinanceFix.Controllers
             var userId = Session["UserID"] as string;
             if (string.IsNullOrEmpty(userId)) return View("Error");
             if (db.Administrator.FirstOrDefault(u => u.ID == userId) == null) return View("Error"); // Must be logged in as admin to access
+                                                                                                    // Check if a user with the given ID already exists
+            if (db.iFINANCEUser.Any(u => u.ID == model.ID))
+            {
+                ModelState.AddModelError("", "A user with this ID already exists.");
+                return View(model);
+            }
 
             using (var db = new Group13_iFINANCEDBEntities1())
             {
@@ -152,5 +158,18 @@ namespace Group13iFinanceFix.Controllers
                 return RedirectToAction("Login");
             }
         }
+
+
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            // Clear the session data
+            Session.Clear();
+            Session.Abandon();
+
+            // Redirect to the home page
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }
