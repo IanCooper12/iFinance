@@ -62,6 +62,18 @@ namespace Group13iFinanceFix.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Validate firstMasterAccount values
+                var validMasterAccountIds = db.MasterAccount.Select(ma => ma.ID).ToHashSet();
+                foreach (var line in model.TransactionLines)
+                {
+                    if (!validMasterAccountIds.Contains(line.firstMasterAccount))
+                    {
+                    
+                        ModelState.AddModelError("", $"Invalid Master Account ID: {line.firstMasterAccount}.");
+                        ViewBag.authorID = new SelectList(db.NonAdminUser, "ID", "StreetAddress", model.Transaction.authorID);
+                        return View(model);
+                    }
+                }
                 double totalDebits = (double)model.TransactionLines.Sum(t => t.debitAmount);
                 double totalCredits = (double)model.TransactionLines.Sum(t => t.creditedAmount);
 
