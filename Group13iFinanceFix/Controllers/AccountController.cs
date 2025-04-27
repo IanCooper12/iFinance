@@ -20,8 +20,7 @@ namespace Group13iFinanceFix.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel model)
         {
-            if (!ModelState.IsValid)
-                return View(model);
+            if (!ModelState.IsValid) return View("Error");
 
             var user = db.UserPassword //look for a user matching username and password
                 .FirstOrDefault(u => u.userName == model.Username && u.encryptedPassword == model.Password);

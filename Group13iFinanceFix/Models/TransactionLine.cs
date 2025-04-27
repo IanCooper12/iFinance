@@ -11,15 +11,20 @@ namespace Group13iFinanceFix.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TransactionLine
     {
         public string ID { get; set; }
+        [Required]
         public Nullable<double> creditedAmount { get; set; }
+        [Required]
         public Nullable<double> debitAmount { get; set; }
         public string comment { get; set; }
         public string transactionID { get; set; }
+        [Required]
         public string firstMasterAccount { get; set; }
+        [Required]
         public string secondMasterAccount { get; set; }
     
         public virtual FinanceTransaction FinanceTransaction { get; set; }

@@ -3,40 +3,51 @@
 @{
     ViewBag.Title = "Details";
 }
-
+<br />
+<div class="mb-3">
+    <a class="btn back-button" href="/FinanceTransactions/Index">&larr; Back</a>
+</div>
 <h2>Details</h2>
+<hr />
 
 <div>
     <h4>FinanceTransaction</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TransactionDate)
+    <dl class="row">
+        <dt class="col-sm-2">
+            Transaction Date
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TransactionDate)
+        <dd class="col-sm-10">
+            @{ var date = Model.TransactionDate?.ToString("yyyy-MM-dd"); @date }
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TransactionDescription)
+        <dt class="col-sm-2">
+            Comment
         </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TransactionDescription)
+        <dd class="col-sm-10">
+            @Model.TransactionDescription
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.NonAdminUser.StreetAddress)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.NonAdminUser.StreetAddress)
-        </dd>
-
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<h4>Transaction Lines</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Master Account</th>
+            <th>Second Master Account</th>
+            <th>Credited Amount</th>
+            <th>Debited Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var line in Model.TransactionLine)
+        {
+            <tr>
+                <td>@ViewBag.MasterAccountNames[line.firstMasterAccount]</td>
+                <td>@ViewBag.MasterAccountNames[line.secondMasterAccount] </td>
+                <td>@line.creditedAmount</td>
+                <td>@line.debitAmount</td>
+            </tr>
+        }
+    </tbody>
+</table>

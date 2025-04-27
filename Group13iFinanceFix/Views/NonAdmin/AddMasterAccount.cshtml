@@ -3,15 +3,14 @@
 @{
     ViewBag.Title = "Add Master Account";
 }
-
+<br />
+<div class="mb-3">
+    <a class="btn back-button" href="/NonAdmin/ChartOfAccounts">&larr; Back to Chart of Accounts</a>
+</div>
 <h3>@ViewBag.Title</h3>
 <hr class="my-4">
 
 <div class="container">
-    <div class="mb-3">
-        <a class="btn back-button" href="/NonAdmin/ChartOfAccounts">&larr; Back to Chart of Accounts</a>
-    </div>
-
     @using (Html.BeginForm("AddMasterAccount", "NonAdmin", FormMethod.Post))
     {
         <div class="form-group">

@@ -11,7 +11,9 @@ namespace Group13iFinanceFix.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class FinanceTransaction
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,6 +24,8 @@ namespace Group13iFinanceFix.Models
     
         public string ID { get; set; }
         public Nullable<System.DateTime> TransactionDate { get; set; }
+
+        [Display(Name = "Transaction Description")]
         public string TransactionDescription { get; set; }
         public string authorID { get; set; }
     

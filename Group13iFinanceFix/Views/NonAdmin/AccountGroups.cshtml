@@ -3,7 +3,10 @@
 @{
     ViewBag.Title = "Account Groups";
 }
-
+<br />
+<div class="mb-3">
+    <a class="btn back-button" href="/NonAdmin/NonAdminDashboard">&larr; Back to Dashboard</a>
+</div>
 <h3>@ViewBag.Title</h3>
 <hr class="my-4">
 
@@ -12,9 +15,6 @@
     <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
 }
 
-<div class="mb-3">
-    <a class="btn back-button" href="/NonAdmin/NonAdminDashboard">&larr; Back to Dashboard</a>
-</div>
 
 <table class="table table-striped table-bordered">
     <thead>

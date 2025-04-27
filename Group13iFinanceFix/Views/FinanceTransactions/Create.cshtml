@@ -10,27 +10,25 @@
 
 <div class="form-horizontal">
     <br />
-    <h2>Create Transaction</h2>
-    <hr />
     <div class="mb-3">
         <a class="btn back-button" href="/FinanceTransactions/Index">&larr; Back to List</a>
     </div>
+    <h2>Create Transaction</h2>
+    <hr />
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+    }
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.Transaction.ID, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Transaction.ID, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Transaction.ID, "", new { @class = "text-danger" })
-        </div>
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Transaction.TransactionDate, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Transaction.TransactionDate, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Transaction.TransactionDate, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    <!-- ID Field (Hidden) -->
+    @Html.HiddenFor(model => model.Transaction.ID)
+
+    <!-- Transaction Date Field (Hidden) -->
+    @Html.HiddenFor(model => model.Transaction.TransactionDate)
+
+    <!-- Author ID Field (Hidden) -->
+    @Html.HiddenFor(model => model.Transaction.authorID)
 
     <div class="form-group">
         @Html.LabelFor(model => model.Transaction.TransactionDescription, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -39,35 +37,38 @@
             @Html.ValidationMessageFor(model => model.Transaction.TransactionDescription, "", new { @class = "text-danger" })
         </div>
     </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Transaction.authorID, "authorID", htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownList("authorID", null, htmlAttributes: new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Transaction.authorID, "", new { @class = "text-danger" })
-        </div>
-    </div>
     <br />
+
     <h4>Transaction Lines</h4>
-    <table class="table">
+    <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Account (Debit)</th>
-                <th>Account (Credit)</th>
-                <th>Debit Amount</th>
+                <th>Account</th>
                 <th>Credit Amount</th>
-                <th>Comment</th>
+                <th>Debit Amount</th>
             </tr>
         </thead>
         <tbody>
             @for (int i = 0; i < Model.TransactionLines.Count; i++)
             {
                 <tr>
-                    <td>@Html.TextBoxFor(m => m.TransactionLines[i].firstMasterAccount, new { @class = "form-control" })</td>
-                    <td>@Html.TextBoxFor(m => m.TransactionLines[i].secondMasterAccount, new { @class = "form-control" })</td>
-                    <td>@Html.TextBoxFor(m => m.TransactionLines[i].debitAmount, new { @class = "form-control" })</td>
-                    <td>@Html.TextBoxFor(m => m.TransactionLines[i].creditedAmount, new { @class = "form-control" })</td>
-                    <td>@Html.TextBoxFor(m => m.TransactionLines[i].comment, new { @class = "form-control" })</td>
+                    <td>
+                        @Html.DropDownListFor(
+                            model => Model.TransactionLines[i].firstMasterAccount,
+                            (SelectList)ViewBag.Accounts,
+                            "Select an account",
+                            new { @class = "form-control", required = true }
+                        )
+                        @Html.ValidationMessageFor(model => Model.TransactionLines[i].firstMasterAccount, "", new { @class = "text-danger" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => Model.TransactionLines[i].creditedAmount, new { htmlAttributes = new { @class = "form-control", required = true } })
+                        @Html.ValidationMessageFor(model => Model.TransactionLines[i].creditedAmount, "", new { @class = "text-danger" })
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => Model.TransactionLines[i].debitAmount, new { htmlAttributes = new { @class = "form-control", required = true } })
+                        @Html.ValidationMessageFor(model => Model.TransactionLines[i].debitAmount, "", new { @class = "text-danger" })
+                    </td>
                 </tr>
             }
         </tbody>
